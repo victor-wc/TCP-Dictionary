@@ -51,12 +51,15 @@ while True:
 
     translation, serverAddress = clientSocket.recvfrom(2048)
 
+    # transforma de bytes para string
+    translation = convertToString(translation)
+
     # se digitar SAIR, encerra a conexao
-    if translation.upper() == 'INVALID':
+    if translation == 'INVALID':
         print('Palavra não encontrada no dicionário.')
         break
 
     # imprime a traducao vinda do servidor
-    print(convertToString(translation))
+    print(message, '->', translation)
 
 clientSocket.close()

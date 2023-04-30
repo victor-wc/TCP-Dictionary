@@ -43,13 +43,14 @@ portToFrench = {
     'transmissão': 'transmission',
 }
 
-serverPort = 12000 
+serverPort = 12005 
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 serverSocket.bind(('', serverPort))
 
 print('Servidor está pronto para receber...')
 
 choice, clientAddress = serverSocket.recvfrom(2048)
+print ('Enviando para: ', clientAddress)
 
 if int(choice) == 1:
     dictionary = portToEnglish
@@ -72,6 +73,7 @@ while 1:
 
     if key not in dictionary:
         sendInvalidMessage()
+        break
 
     serverSocket.sendto(convertToBytes(dictionary[key]), clientAddress)
 

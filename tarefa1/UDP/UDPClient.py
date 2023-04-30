@@ -21,7 +21,7 @@ def printAvailableWords(response):
         print('- ', words[index])
 
 serverName = 'localhost' # maquina onde esta o servidor
-serverPort = 12000 # porta que o servidor esta escutando
+serverPort = 12005 # porta que o servidor esta escutando
 
 # cria socket cliente (AF_INET: familia de enderecos (IPV4) | SOCK_DGRAM: tipo de socket (UDP))
 clientSocket = socket(AF_INET, SOCK_DGRAM)
@@ -51,12 +51,14 @@ while True:
 
     translation, serverAddress = clientSocket.recvfrom(2048)
 
+    translation = convertToString(translation)
+
     # se digitar SAIR, encerra a conexao
-    if translation.upper() == 'INVALID':
+    if translation == 'INVALID':
         print('Palavra não encontrada no dicionário.')
         break
 
     # imprime a traducao vinda do servidor
-    print(convertToString(translation))
+    print(message, '->', translation)
 
 clientSocket.close()
