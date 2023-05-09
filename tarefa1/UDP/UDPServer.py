@@ -76,5 +76,3 @@ while 1:
         break
 
     serverSocket.sendto(convertToBytes(dictionary[key]), clientAddress)
-
-# serverSocket.close()

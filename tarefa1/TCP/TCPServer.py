@@ -82,5 +82,3 @@ while 1:
     connectionSocket.send(convertToBytes(dictionary[key]))
 
 connectionSocket.close()
-
-# serverSocket.close()
