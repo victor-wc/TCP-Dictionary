@@ -24,7 +24,7 @@ O repositório é composto pelos subdiretórios:
 1.  Clone esse repositório
 ```
   git clone https://github.com/victor-wc/redes-comp-1
-``
+```
 
 2. Mude para a pasta do protocolo de transporte desejado (TCP ou UDP):
 ```
